@@ -1,0 +1,1 @@
+# monolithic_go_app_with_embedded_cdk
