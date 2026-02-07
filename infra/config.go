@@ -7,18 +7,14 @@ import (
 
 // Config holds shared configuration used by both the application and infrastructure.
 type Config struct {
-	DomainName   string
-	HostedZoneID string
-	ZoneName     string
+	StackName string
 }
 
 // ConfigFromContext reads configuration from CDK context values,
 // which are passed via -c flags or cdk.json context.
 func ConfigFromContext(app awscdk.App) Config {
 	return Config{
-		DomainName:   contextString(app, "domain_name"),
-		HostedZoneID: contextString(app, "hosted_zone_id"),
-		ZoneName:     contextString(app, "zone_name"),
+		StackName: contextString(app, "stack_name"),
 	}
 }
 

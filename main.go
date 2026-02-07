@@ -14,6 +14,6 @@ func main() {
 	}
 
 	// Normal application logic
-	fmt.Println("picgallery app running")
+	fmt.Println("app running")
 	fmt.Println("Usage: pass 'synth' subcommand to generate CDK cloud assembly")
 }

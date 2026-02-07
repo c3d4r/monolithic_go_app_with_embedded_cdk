@@ -5,7 +5,7 @@ import (
 	"github.com/aws/jsii-runtime-go"
 )
 
-// Synthesize creates the CDK app, reads context, defines stacks,
+// Synthesize creates the CDK app, defines stacks,
 // and writes the cloud assembly to cdk.out/.
 func Synthesize() {
 	defer jsii.Close()
@@ -13,7 +13,12 @@ func Synthesize() {
 	app := awscdk.NewApp(nil)
 	cfg := ConfigFromContext(app)
 
-	NewPicGalleryStack(app, "PicGalleryStack", cfg, &awscdk.StackProps{
+	stackName := cfg.StackName
+	if stackName == "" {
+		stackName = "AppStack"
+	}
+
+	NewAppStack(app, stackName, &awscdk.StackProps{
 		Env: env(),
 	})
 
